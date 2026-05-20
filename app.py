@@ -161,16 +161,15 @@ def get_weather(city: str):
         }
 
 
-# =========================
+
 # TOOL LIST
-# =========================
+
 
 tools = [get_weather]
 
 
-# =========================
+
 # CREATE AGENT
-# =========================
 
 agent = create_react_agent(
     llm,
@@ -178,9 +177,7 @@ agent = create_react_agent(
 )
 
 
-# =========================
 # CHAT LOOP
-# =========================
 
 while True:
 
@@ -194,10 +191,8 @@ while True:
 
     try:
 
-        # =========================
         # INVOKE AGENT
-        # =========================
-
+        
         response = agent.invoke(
             {
                 "messages": [
@@ -206,10 +201,9 @@ while True:
             }
         )
 
-        # =========================
+        
         # FINAL RESPONSE
-        # =========================
-
+      
         final_answer = response["messages"][-1].content
 
         print("\nAgent:")
